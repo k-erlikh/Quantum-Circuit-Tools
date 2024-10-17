@@ -3,14 +3,14 @@
 #ifndef GATE_H
 #define GATE_H
 
-template <typename T>
-
 class Gate{
     protected:
-        Matrix<T> gate;
+        Matrix<int> gate;
         int size;
+        int control;
+        int target;
     public:
-        Gate(int n) : gate(n, n), size(n) {}
+        Gate(int c, int t, int size) : control(c), target(t), gate(size, size) {}
 
         virtual ~Gate() = default;
 
