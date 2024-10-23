@@ -8,7 +8,9 @@
 
 class Circuit{
     public:
-        Circuit();
+        Circuit(int q, int g);
+        void addQubit(Qubit* q);
+        void addGate(Gate* g);
 
     protected:
         int qubits_t;
