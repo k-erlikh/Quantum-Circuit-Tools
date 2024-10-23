@@ -9,7 +9,14 @@
 using namespace std;
 class Qubit{
     public:
-        Qubit(complex<double> a, complex<double> b);
+        Qubit(const char* state);
+        enum QState {
+            ZERO, // |0>
+            ONE,  // |1>
+            PLUS, // |+>
+            MINUS // |->
+        };
+
     protected:
         array<complex<double>, 2> qubit;
 };

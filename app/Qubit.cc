@@ -1,11 +1,23 @@
 #include "Qubit.h"
 
-Qubit::Qubit(complex<double> a, complex<double> b): qubit{a,b}{
-    double normalization = std::norm(this->qubit[0]) + std::norm(qubit[1]);
-    if (normalization == 0){
-        qubit[0] = 0;
-        qubit[1] = 1;
+Qubit::Qubit(const char* s){
+    int state = atoi(s);
+
+    switch(state){
+        case ZERO:
+            qubit = {1.0, 0.0};
+            break;
+        case ONE:
+            qubit = {0.0, 1.0};
+            break;
+        case PLUS:
+            qubit = {1.0 / sqrt(2.0), 1.0 / sqrt(2.0)};
+            break;
+        case MINUS:
+            qubit = {1.0 / sqrt(2.0), -1.0 / sqrt(2.0)};
+            break;
+        default:
+            qubit = {-1.0,-1.0};
+            break;
     }
-    qubit[0] = qubit[0]/sqrt(normalization);
-    qubit[1] = qubit[1]/sqrt(normalization);
 };
