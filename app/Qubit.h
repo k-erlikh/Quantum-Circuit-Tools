@@ -9,7 +9,7 @@
 using namespace std;
 class Qubit{
     public:
-        Qubit(const char* state);
+        Qubit(const char state);
         enum QState {
             ZERO, // |0>
             ONE,  // |1>
