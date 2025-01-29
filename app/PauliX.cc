@@ -1,22 +1,6 @@
-// #include "Gate.h"
+#include "PauliX.h"
 
-// #ifndef PauliX
-// #define PauliX
-
-// class PauliX : public Gate<int>{
-//     public:
-//         PauliX();
-
-// };
-
-// PauliX::PauliX() : Gate<int>(2){
-//     setDefaultGate();
-// };
-
-// void PauliX::setDefaultGate(){
-    
-// };
-
-// #endif PauliX
-
-
+Pauli_X::Pauli_X(int control, int target, int size):Gate(control, target, size){
+    int matrix[] = {0,1,1,0};
+    gate.setMatrix(matrix);
+}
