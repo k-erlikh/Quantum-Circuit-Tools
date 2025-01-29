@@ -9,12 +9,12 @@ class Gate{
         int size;
         int control;
         int target;
+    
     public:
-        Gate(int c, int t, int size) : control(c), target(t), gate(size, size) {}
+        Gate(int control, int target, int size) : control(control), target(target), gate(size, size) {}
 
         virtual ~Gate() = default;
 
-        virtual void setDefaultGate() = 0;
 };
 
 #endif
