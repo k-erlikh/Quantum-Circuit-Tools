@@ -1,6 +1,6 @@
 #include "Qubit.h"
 
-Qubit::Qubit(const char s){
+Qubit::Qubit(const char s = 0){
     int state = atoi(&s);
 
     switch(state){
