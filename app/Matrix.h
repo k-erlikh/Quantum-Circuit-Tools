@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+#include "Qubit.h"
 
 #ifndef MATRIX_H
 #define MATRIX_H
@@ -23,6 +24,12 @@ class Matrix{
                 data.resize(1 * 1);
             }
         };
+
+        void setMatrix(int[] values){
+            for int v : values{
+                data[i] = v;
+            }
+        }
         
         int t_cols() const{
             return this->cols;
