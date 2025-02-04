@@ -1,16 +1,11 @@
 #include "Circuit.h"
 
-Circuit::Circuit(int q, int g): qubits_t(q), gates_t(g){
-    qubits.resize(qubits_t, nullptr);  
-    gates.resize(gates_t, nullptr);
+Circuit::Circuit(int q, int g){}
+
+void Circuit::addGate(unique_ptr<Gate> g){
+    this->gates.push_back(std::move(g));
 }
 
-void Circuit::addGate(Gate* g){
-    this->gates.push_back(g);
-    this->gates_t ++;
-}
-
-void Circuit::addQubit(Qubit* q){
-    this->qubits.push_back(q);
-    this->qubits_t ++;
+void Circuit::addQubit(unique_ptr<Qubit> q){
+    this->qubits.push_back(std::move(q));
 }

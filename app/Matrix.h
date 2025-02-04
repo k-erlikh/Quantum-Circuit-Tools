@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
-#include "Qubit.h"
 
 #ifndef MATRIX_H
 #define MATRIX_H

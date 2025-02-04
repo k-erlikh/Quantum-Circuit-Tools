@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <vector>
+#include <memory>
 #include "Qubit.h"
 #include "Gate.h"
 
@@ -9,14 +10,12 @@
 class Circuit{
     public:
         Circuit(int q, int g);
-        void addQubit(Qubit* q);
-        void addGate(Gate* g);
+        void addQubit(unique_ptr<Qubit> q);
+        void addGate(unique_ptr<Gate> g);
 
     protected:
-        int qubits_t;
-        std::vector<Qubit*> qubits;
-        int gates_t;
-        std::vector<Gate*> gates;
+        vector<unique_ptr<Qubit>> qubits;
+        vector<unique_ptr<Gate>> gates;
 };
 
 #endif

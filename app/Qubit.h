@@ -1,5 +1,7 @@
+#include "Gate.h"
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 #include <complex>
 #include <array>
 
@@ -17,8 +19,14 @@ class Qubit{
             MINUS // |->
         };
 
-    protected:
-        array<complex<double>, 2> qubit;
+        void add_gate();
+        void apply_gates();
+        void print_state();
+
+    private:
+        array<complex<double>, 2> qubit_state;
+        vector<reference_wrapper<Gate>> applied_gates;
+        array<complex<double>, 2> measured_state;
 };
 
 #endif

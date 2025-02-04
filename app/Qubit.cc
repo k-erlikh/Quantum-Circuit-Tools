@@ -5,19 +5,28 @@ Qubit::Qubit(const char s = 0){
 
     switch(state){
         case ZERO:
-            qubit = {1.0, 0.0};
+            qubit_state = {1.0, 0.0};
             break;
         case ONE:
-            qubit = {0.0, 1.0};
+            qubit_state = {0.0, 1.0};
             break;
         case PLUS:
-            qubit = {1.0 / sqrt(2.0), 1.0 / sqrt(2.0)};
+            qubit_state = {1.0 / sqrt(2.0), 1.0 / sqrt(2.0)};
             break;
         case MINUS:
-            qubit = {1.0 / sqrt(2.0), -1.0 / sqrt(2.0)};
+            qubit_state = {1.0 / sqrt(2.0), -1.0 / sqrt(2.0)};
             break;
         default:
-            qubit = {-1.0,-1.0};
+            qubit_state = {-1.0,-1.0};
             break;
     }
-};
+}
+
+
+void Qubit::apply_gates(){
+
+}
+
+void Qubit::print_state(){
+
+}

@@ -3,10 +3,10 @@
 #ifndef PAULIX_H
 #define PAULIX_H
 
-class Pauli_X : public Gate{
+class PauliX : public Gate{
 
     public:
-        Pauli_X(int n, int c, int size);
+        PauliX(int n, int c, int size = 2);
 
 };
 
