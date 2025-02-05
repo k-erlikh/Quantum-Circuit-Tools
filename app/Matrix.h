@@ -24,10 +24,8 @@ class Matrix{
             }
         };
 
-        void setMatrix(int[] values){
-            for int v : values{
-                data[i] = v;
-            }
+        void setMatrix(const std::vector<T> values){
+            data = values;
         }
         
         int t_cols() const{

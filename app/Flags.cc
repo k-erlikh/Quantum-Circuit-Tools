@@ -3,7 +3,7 @@
 
 void Flags::handle_q(Circuit& circuit, int n){
     for(int i = 0; i < n; i++){
-        circuit.addQubit(std::make_unique<Qubit>());
+        circuit.addQubit(Qubit());
     }
 }
 
