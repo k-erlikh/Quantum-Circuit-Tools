@@ -1,4 +1,5 @@
 #include "Gate.h"
+#include "Matrix.h"
 #include <stdio.h>
 #include <iostream>
 #include <vector>
@@ -12,7 +13,6 @@
 using namespace std;
 class Qubit{
     public:
-        Qubit(const char state = 0);
         enum QState {
             ZERO, // |0>
             ONE,  // |1>
@@ -20,6 +20,7 @@ class Qubit{
             MINUS // |->
         };
 
+        Qubit(QState state = ZERO);
         Qubit(const Qubit& other);
 
         void add_gate();
@@ -27,9 +28,9 @@ class Qubit{
         void print_state();
 
     private:
-        array<complex<double>, 2> qubit_state;
+        Matrix<double> qubit_state;
         vector<unique_ptr<Gate>> qubit_gates;
-        array<complex<double>, 2> measured_state;
+        Matrix<double> measured_state;
 };
 
 #endif

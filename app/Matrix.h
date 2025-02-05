@@ -13,6 +13,8 @@ class Matrix{
         std::vector<T> data;
 
     public:
+        Matrix() : cols(1), rows(1), data(1, T()) {}
+
         Matrix(int cols, int rows){
             if (cols > 0 && rows > 0){
                 this->cols = cols;
@@ -56,11 +58,14 @@ class Matrix{
 
         void print_matrix(){
             for(int i = 0; i < this->rows; i ++){
+                std::cout<<"| ";
                 for(int j = 0; j < this-> cols; j++){
-                    std::cout << (i, j) << " ";
+                    std::cout << data[i] << " ";
                 }
+                std::cout<<"|";
                 std::cout << std::endl;
             }
+            std::cout << std::endl;
         };
 }; 
 
