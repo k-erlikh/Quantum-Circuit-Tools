@@ -1,6 +1,6 @@
 #include "Qubit.h"
 
-Qubit::Qubit(const char s = 0){
+Qubit::Qubit(const char s){
     int state = atoi(&s);
 
     switch(state){
@@ -22,11 +22,20 @@ Qubit::Qubit(const char s = 0){
     }
 }
 
+Qubit::Qubit(const Qubit &other): qubit_state(qubit_state){
+    for(const auto& gate : other.qubit_gates){
+        qubit_gates.push_back(make_unique<Gate>(*gate));
+    }
+}
 
-void Qubit::apply_gates(){
+void Qubit::add_gate()
+{
+}
 
+void Qubit::apply_gates()
+{
 }
 
 void Qubit::print_state(){
-
+    cout << this->qubit_state[0] << this->qubit_state[1]<<endl;
 }
