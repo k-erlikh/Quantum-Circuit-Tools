@@ -28,3 +28,16 @@ void Circuit::print_circuit_features(){
         }
     }
 }
+
+void Circuit::set_qubit_gate(unique_ptr<Gate> g, char c){
+    int ic = c - '0';
+    if (ic >= 0){
+        this->qubits[ic].add_gate(move(g));
+    }
+}
+
+void Circuit::measure(){
+    for(auto& q:qubits){
+        q.apply_gates();
+    }
+}

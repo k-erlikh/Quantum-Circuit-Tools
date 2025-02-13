@@ -13,8 +13,10 @@ class Circuit{
         void addQubit(Qubit q);
         void addGate(unique_ptr<Gate> g);
         void print_circuit_features();
+        void set_qubit_gate(unique_ptr<Gate> g, char c);
+        void measure();
 
-    protected:
+    private:
         vector<Qubit> qubits;
         vector<unique_ptr<Gate>> gates;
 };

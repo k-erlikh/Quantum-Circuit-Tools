@@ -34,6 +34,14 @@ int main(int argc, char * argv[]){
         if (variables_map.count("qubit")){
             Flags::handle_q(circuit, variables_map["qubit"].as<int>());
         }
-        
+
+        if (variables_map.count("paulix")){
+            cout<<variables_map["paulix"].as<std::string>()<<endl;
+            Flags::handle_px(circuit, variables_map["paulix"].as<std::string>());
+        }
+       
+    circuit.print_circuit_features();
+    circuit.measure();
+    circuit.print_circuit_features();
     return 0;
 }

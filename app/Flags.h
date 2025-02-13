@@ -8,7 +8,7 @@ class Flags{
        static void handle_s(Circuit& circuit, string &states); //imulate
        static void handle_h(Circuit& circuit, string& qubits); //Hadamard Gate
        static void handle_not(Circuit &circuit, string&qubits);
-       static void handle_px(Circuit& circuit, string& qubits); //Pauli X Gate
+       static void handle_px(Circuit& circuit, const string& qubits); //Pauli X Gate
        static void handle_py(Circuit& circuit); //Pauli Y Gate
        static void handle_pz(Circuit& circuit); //Pauli Z Gate
 };

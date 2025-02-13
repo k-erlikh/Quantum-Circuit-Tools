@@ -23,7 +23,7 @@ class Qubit{
         Qubit(QState state = ZERO);
         Qubit(const Qubit& other);
 
-        void add_gate();
+        void add_gate(unique_ptr<Gate> g);
         void apply_gates();
         void print_state();
 

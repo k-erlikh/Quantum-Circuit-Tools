@@ -26,12 +26,16 @@ Qubit::Qubit(const Qubit &other) : qubit_state(other.qubit_state){
     }
 }
 
-void Qubit::add_gate()
-{
+void Qubit::add_gate(unique_ptr<Gate> g){
+    this->qubit_gates.push_back(move(g));
 }
 
-void Qubit::apply_gates()
-{
+void Qubit::apply_gates(){
+    
+    for(auto& gate: this->qubit_gates){
+        Matrix<double> output = gate.get()->gate.multiply_matrix(this->qubit_state);
+        qubit_state = output;
+    }
 }
 
 void Qubit::print_state(){
