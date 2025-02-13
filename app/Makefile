@@ -1,3 +1,15 @@
+FLAGS = -Wall -Wextra -g
+OUTPUT = circuit
+SRC = main.cc Qubit.cc Flags.cc PauliX.cc Circuit.cc 
+OBJS = $(SRC:.cc=.o)
 
-all:
-	g++ -g -Wextra -Wall main.cc Flags.cc Circuit.cc Qubit.cc PauliX.cc -o circuit -lboost_program_options
+all: $(OUTPUT)
+
+$(OUTPUT): $(OBJS)
+	g++ $(OBJS) -o $(OUTPUT) -lboost_program_options
+
+%.o: %.cc
+	g++ $(FLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS) $(OUTPUT)

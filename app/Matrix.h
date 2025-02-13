@@ -66,10 +66,10 @@ class Matrix{
 
         Matrix<T> multiply_matrix(const Matrix<T>& other) {
             Matrix<T> result(other.cols, this->rows);
-            for (int i = 0; i < this->rows; ++i) { 
-                for (int j = 0; j < other.cols; ++j) {
+            for (int i = 0; i < this->rows; i++) { 
+                for (int j = 0; j < other.cols; j++) {
                     T sum = 0;
-                    for (int k = 0; k < this->cols; ++k) { 
+                    for (int k = 0; k < this->cols; k++) { 
                         sum += (*this)(i, k) * other(k, j); 
                     }
                     result(i, j) = sum;
