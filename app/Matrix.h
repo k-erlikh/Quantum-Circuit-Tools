@@ -38,18 +38,19 @@ class Matrix{
             return this->rows;
         };
 
-        T& operator()(int col, int row){
-            if(row > 0 && row <= this->rows && col > 0 && col <= this->cols){
-                return this->data[row*this->cols + col];
-            }
-            //need to add error handeling
-        };
-
-        const T& operator()(int col, int row) const{
-            if(row > 0 && row <= this->rows && col > 0 && col <= this->cols){
-                return this->data[row*this->cols + col];
-            }
-        };
+        T& operator()(int row, int col) {
+            if (row >= 0 && row < this->rows && col >= 0 && col < this->cols) {
+                return this->data[row * this->cols + col];
+            } 
+            throw std::out_of_range("Exception: Out of bounds");
+        }
+        
+        const T& operator()(int row, int col) const {
+            if (row >= 0 && row < this->rows && col >= 0 && col < this->cols) {
+                return this->data[row * this->cols + col];
+            } 
+            throw std::out_of_range("Exception: Out of bounds");
+        }        
 
         void print_matrix(){
             for (int i = 0; i < this->rows; i++) {
@@ -64,17 +65,16 @@ class Matrix{
         }
 
         Matrix<T> multiply_matrix(const Matrix<T>& other) {
-            Matrix<T> result(this->rows, other.t_cols());
+            Matrix<T> result(other.cols, this->rows);
             for (int i = 0; i < this->rows; ++i) { 
-                for (int j = 0; j < other.t_cols(); ++j) { 
+                for (int j = 0; j < other.cols; ++j) {
                     T sum = 0;
                     for (int k = 0; k < this->cols; ++k) { 
                         sum += (*this)(i, k) * other(k, j); 
                     }
-                    result(j, i) = sum;
+                    result(i, j) = sum;
                 }
             }
-        
             return result;
         }
 }; 

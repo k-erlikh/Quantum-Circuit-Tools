@@ -41,3 +41,14 @@ void Qubit::apply_gates(){
 void Qubit::print_state(){
     this->qubit_state.print_matrix();
 }
+
+void Qubit::print_gates(){
+    std::cout<<"Qubit gates: "<<std::endl;
+    if(qubit_gates.empty() || qubit_gates.size() == 0){
+        std::cout<<"No gates applied on qubit"<<std::endl;
+        return;
+    }
+    for(auto& g:this->qubit_gates){
+        g.get()->gate.print_matrix();
+    }
+}

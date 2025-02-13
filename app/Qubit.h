@@ -26,6 +26,7 @@ class Qubit{
         void add_gate(unique_ptr<Gate> g);
         void apply_gates();
         void print_state();
+        void print_gates();
 
     private:
         Matrix<double> qubit_state;
